@@ -24,22 +24,22 @@ const EXPLORE_MENU = [
     title: `Promotion`,
     imgURL: Explore4,
   },
-  //   {
-  //     title: `Signature-Boxes`,
-  //     imgURL: Explore5,
-  //   },
-  //   {
-  //     title: `Sharing`,
-  //     imgURL: Explore6,
-  //   },
-  //   {
-  //     title: `Snacks-&-Beverages`,
-  //     imgURL: Explore7,
-  //   },
-  //   {
-  //     title: `Midnight (Start at 12am)`,
-  //     imgURL: Explore8,
-  //   },
+  {
+    title: `Signature-Boxes`,
+    imgURL: Explore5,
+  },
+  {
+    title: `Sharing`,
+    imgURL: Explore6,
+  },
+  {
+    title: `Snacks-&-Beverages`,
+    imgURL: Explore7,
+  },
+  {
+    title: `Midnight (Start at 12am)`,
+    imgURL: Explore8,
+  },
 ];
 
 export default EXPLORE_MENU;

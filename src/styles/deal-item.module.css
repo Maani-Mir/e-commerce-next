@@ -1,0 +1,22 @@
+.deal__item__card {
+  background-color: #1c1816;
+  margin-right: 20px;
+  box-sizing: border-box;
+  text-align: center; /* to center elements inside a div*/
+  padding: 36px;
+  /* border-radius: 50% 50% 5% 50%; */
+  width: 20%;
+}
+
+.deal__item__image {
+  transition: transform 0.3s ease-in-out;
+  /* transform: translateZ(15px); */
+}
+
+.deal__item__image:hover {
+  transform: perspective(600px) translateZ(100px); /*the bigger the difference in these px values, the less pop-up there will be*/
+}
+
+.deal_item__title {
+  font-size: medium;
+}

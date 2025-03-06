@@ -9,6 +9,8 @@ import Slider from "@madzadev/image-slider";
 import Explore from "@/components/Explore";
 import "@madzadev/image-slider/dist/index.css";
 import Link from "next/link";
+import Sellers from "@/components/Sellers";
+import Deals from "@/components/Deals";
 
 export default function Home() {
   return (
@@ -28,6 +30,8 @@ export default function Home() {
           </Link>
         </div>
         <Explore />
+        <Sellers />
+        <Deals />
       </main>
       <Footer />
     </div>
