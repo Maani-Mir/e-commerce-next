@@ -1,0 +1,13 @@
+.header__logo {
+  /* grid-row-start: 3; */
+  display: flex;
+  gap: 24px;
+  padding-top: 40px;
+  padding-left: 300px;
+  padding-bottom: 30px;
+}
+
+.navbar {
+  display: flex;
+  text-decoration: none;
+}
