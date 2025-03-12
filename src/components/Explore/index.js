@@ -26,7 +26,7 @@ export default function Explore() {
         <div className="border-[#EA002A] border-b-4 w-20 ml-0.5 pt-0.5"></div>
       </div>
 
-      <div className="relative mt-20 pl-[300px] pr-[260px]">
+      <div className="relative mt-12 pl-[300px] pr-[260px]">
         <button
           className="absolute left-60 top-1/2 -translate-y-1/2 bg-red-700 p-q rounded-full"
           onClick={() => scroll(true)}
