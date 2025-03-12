@@ -8,22 +8,27 @@ const SELLER_MENU = [
   {
     title: `Krunch Burger`,
     imgURL: Seller1,
+    price: `Rs310`,
   },
   {
     title: `Krunch Combo`,
     imgURL: Seller2,
+    price: `Rs590`,
   },
   {
     title: `Chicken & Chips`,
     imgURL: Seller3,
+    price: `Rs620`,
   },
   {
     title: `Hot Wings Bucket`,
     imgURL: Seller4,
+    price: `Rs670`,
   },
   {
     title: `Mighty Zinger`,
     imgURL: Seller5,
+    price: `Rs770`,
   },
 ];
 

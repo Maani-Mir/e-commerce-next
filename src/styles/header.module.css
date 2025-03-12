@@ -1,15 +1,9 @@
 .header__logo {
   /* grid-row-start: 3; */
-  display: flex;
+  /* display: flex;
+  flex-direction: row; */
   gap: 24px;
   padding-top: 40px;
   padding-left: 300px;
   padding-bottom: 30px;
-}
-
-.navbar {
-  display: flex;
-  flex-direction: row;
-  text-decoration: none;
-  padding-left: 60px;
 }

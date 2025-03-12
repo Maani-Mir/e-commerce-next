@@ -17,6 +17,7 @@ export default function ExploreItem({ title, image }) {
       <div className="font-semibold text-nowrap text-base tracking-tight ">
         {title}
         <div className="m-auto border-[#EA002A] border-b-4 w-20 mt-1 rounded-sm"></div>
+        {/* <span className="rounded-full bg-black "></span> */}
       </div>
     </div>
   );

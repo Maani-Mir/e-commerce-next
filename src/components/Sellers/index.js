@@ -11,8 +11,15 @@ export default function Sellers() {
         <div className="border-[#EA002A] border-b-4 w-20 ml-0.5 pt-0.5"></div>
       </div>
       <div className={styles.seller__list__container}>
-        {SELLER_MENU.map(({ title, imgURL }, index) => {
-          return <SellerItem key={index} title={title} image={imgURL} />;
+        {SELLER_MENU.map(({ title, imgURL, price }, index) => {
+          return (
+            <SellerItem
+              key={index}
+              title={title}
+              image={imgURL}
+              price={price}
+            />
+          );
         })}
       </div>
     </div>
