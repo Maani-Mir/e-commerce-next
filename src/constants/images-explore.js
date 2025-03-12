@@ -9,7 +9,7 @@ import Explore8 from "../../public/explore-8.png";
 
 const EXPLORE_MENU = [
   {
-    title: `Ramzan Offers`,
+    title: `Ramadan Offers`,
     imgURL: Explore1,
   },
   {

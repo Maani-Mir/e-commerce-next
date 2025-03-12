@@ -1,10 +1,11 @@
+/*
 .explore__item__card {
-  background-color: #1c1816;
-  margin-right: 20px;
+   background-color: #1c1816;
+  margin-right: 20px; 
   box-sizing: border-box;
-  text-align: center; /* to center elements inside a div*/
+  text-align: center; /* to center elements inside a div
   padding: 36px;
-  border-radius: 50% 50% 5% 50%;
+  border-radius: 50% 50% 5% 50%; 
   width: 20%;
   transition: transform 0.3s ease-in-out;
 }
@@ -16,3 +17,4 @@
 .explore__item__title {
   font-size: medium;
 }
+*/

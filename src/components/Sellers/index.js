@@ -7,7 +7,8 @@ export default function Sellers() {
   return (
     <div>
       <div className={styles.seller__title}>
-        <h2>Best Sellers</h2>
+        <h2 className="text-3xl font-sans -tracking-widest">BEST SELLERS</h2>
+        <div className="border-[#EA002A] border-b-4 w-20 ml-0.5 pt-0.5"></div>
       </div>
       <div className={styles.seller__list__container}>
         {SELLER_MENU.map(({ title, imgURL }, index) => {

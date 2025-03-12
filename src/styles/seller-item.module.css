@@ -1,13 +1,19 @@
 .seller__item__card {
+  flex: 0 0 auto;
   background-color: #1c1816;
   margin-right: 20px;
   box-sizing: border-box;
-  text-align: center; /* to center elements inside a div*/
-  padding: 36px;
-  /* border-radius: 50% 50% 5% 50%; */
-  width: 20%;
+  text-align: left; /* to center elements inside a div*/
+  padding: 10px 10px 0px 10px;
+  border-radius: 5px;
+  /* width: 20%; */
+  /* max-width: 100%; */
+  /* flex-grow: 1; */
+  height: 400px;
 }
 
-.seller_item__title {
-  font-size: medium;
+.seller__item__title {
+  font-size: x-large;
+  padding-top: 30px;
+  letter-spacing: -1px;
 }

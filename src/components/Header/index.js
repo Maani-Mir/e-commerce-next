@@ -14,7 +14,7 @@ export default function Header() {
           height="auto"
           placeholder="blur"
         />
-        {/* <nav className="navbar">
+        {/* <nav className={styles.navbar}>
           <ul>
             <li>Delivery</li>
             <li>Pickup</li>

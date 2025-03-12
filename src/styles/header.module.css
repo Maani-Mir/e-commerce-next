@@ -9,5 +9,7 @@
 
 .navbar {
   display: flex;
+  flex-direction: row;
   text-decoration: none;
+  padding-left: 60px;
 }

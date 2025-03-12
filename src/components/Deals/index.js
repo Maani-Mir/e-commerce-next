@@ -7,11 +7,20 @@ export default function Deals() {
   return (
     <div>
       <div className={styles.deal__title}>
-        <h2>Top Deals</h2>
+        <h2 className="text-3xl font-sans -tracking-widest">TOP DEALS</h2>
+        <div className="border-[#EA002A] border-b-4 w-20 ml-0.5 pt-0.5"></div>
       </div>
       <div className={styles.deal__list__container}>
-        {DEAL_MENU.map(({ title, imgURL }, index) => {
-          return <DealItem key={index} title={title} image={imgURL} />;
+        {DEAL_MENU.map(({ title, desc, price, imgURL }, index) => {
+          return (
+            <DealItem
+              key={index}
+              title={title}
+              desc={desc}
+              price={price}
+              image={imgURL}
+            />
+          );
         })}
       </div>
     </div>
