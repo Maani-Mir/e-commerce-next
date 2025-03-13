@@ -1,4 +1,4 @@
-.seller__list__container {
+/* .seller__list__container {
   display: flex;
   flex-wrap: nowrap;
   overflow-x: scroll;
@@ -6,11 +6,9 @@
   margin-top: 40px;
   margin-left: 300px;
   margin-right: 260px;
-  /* width: 100%; */
-  /* margin-right: 300px; */
-}
+} */
 
-.seller__title {
+/* .seller__title {
   margin-top: 40px;
   padding-left: 300px;
-}
+} */

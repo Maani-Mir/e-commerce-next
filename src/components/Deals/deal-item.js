@@ -20,13 +20,13 @@ export default function DealItem({ title, desc, price, image }) {
         width={300}
         height="auto"
       />
-      <p className={styles.deal__item__title}>{title}</p>
-      <p className="text-sm font-bold pt-2 truncate">{desc}</p>
+      <p className="text-lg font-bold">{title}</p>
+      <p className="text-sm font-bold pt-2 truncate ">{desc}</p>
       <p className="text-base font-bold pt-4 tracking-tighter">{price}</p>
-      <div className="text-center z-10 pt-5">
+      <div className=" z-10 mt-4 -mb-2 ml-20 inline-flex hover:-translate-y-1 transition ease-in-out hover:scale-105 duration-300 ">
         <Link
           href="#"
-          className="bg-[#EA002A] p-2.5 rounded-lg font-bold px-2 tracking-tighter text-sm"
+          className="bg-[#EA002A] p-2.5  rounded-lg font-bold px-2.5 tracking-tighter text-sm  hover:bg-white hover:text-[#EA002A]"
         >
           + ADD TO BUCKET
         </Link>

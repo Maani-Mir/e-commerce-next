@@ -9,7 +9,7 @@ import Link from "next/link";
 export default function Hero() {
   return (
     <>
-      <div className="flex flex-row pl-[300px] mt-20">
+      <div className="flex flex-row mt-20">
         <div>
           <Image
             className=" rounded-2xl"
@@ -29,7 +29,7 @@ export default function Hero() {
           />
         </div>
       </div>
-      <div className="flex flex-row pl-[300px] mt-8">
+      <div className="flex flex-row mt-8">
         <div>
           <Image
             className=" rounded-2xl"

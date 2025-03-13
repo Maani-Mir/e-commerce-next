@@ -9,7 +9,7 @@ import Link from "next/link";
 export default function Header() {
   return (
     <header>
-      <nav className="sticky top-0 ">
+      <nav className="fixed z-10 top-0 bg-black">
         <div className="flex flex-row">
           {/* <nav> */}
           <div className={styles.header__logo}>
@@ -51,7 +51,7 @@ export default function Header() {
               </Link>
             </div>
           </div>
-          <div className="ml-[800px] justify-end pt-11">
+          <div className="ml-[800px] justify-end pt-11 pr-80">
             <Link
               href="#"
               className="bg-[#EA002A] p-2.5 rounded-lg font-bold px-3.5 text-sm"

@@ -6,11 +6,11 @@ import DealItem from "./deal-item";
 export default function Deals() {
   return (
     <div>
-      <div className={styles.deal__title}>
+      <div className="mt-10">
         <h2 className="text-3xl font-sans -tracking-widest">TOP DEALS</h2>
         <div className="border-[#EA002A] border-b-4 w-20 ml-0.5 pt-0.5"></div>
       </div>
-      <div className={styles.deal__list__container}>
+      <div className="flex flex-nowrap mt-10 overflow-x-auto">
         {DEAL_MENU.map(({ title, desc, price, imgURL }, index) => {
           return (
             <DealItem

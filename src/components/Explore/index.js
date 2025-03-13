@@ -21,14 +21,14 @@ export default function Explore() {
 
   return (
     <div className="mt-12">
-      <div className="pl-[300px]">
+      <div className="">
         <h2 className="text-3xl -tracking-widest font-sans">EXPLORE MENU</h2>
         <div className="border-[#EA002A] border-b-4 w-20 ml-0.5 pt-0.5"></div>
       </div>
 
-      <div className="relative mt-12 pl-[300px] pr-[260px]">
+      <div className="relative mt-12">
         <button
-          className="absolute left-60 top-1/2 -translate-y-1/2 bg-red-700 p-q rounded-full"
+          className="absolute left-0 top-1/2 -translate-y-1/2 bg-red-700 rounded-full"
           onClick={() => scroll(true)}
         >
           <ChevronLeft className="text-black" />
@@ -42,7 +42,7 @@ export default function Explore() {
           })}
         </div>
         <button
-          className="absolute right-52 top-1/2 -translate-y-1/2 bg-red-700 p-q rounded-full"
+          className="absolute right-0 top-1/2 -translate-y-1/2 bg-red-700 rounded-full"
           onClick={() => scroll(false)}
         >
           <ChevronRight className="text-black" />

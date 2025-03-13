@@ -18,12 +18,14 @@ export default function Home() {
     <div>
       <Header />
       <main>
-        <Slider
-          imageList={SLIDER_IMAGES}
-          width={1915}
-          height={719}
-          showDotControls={false}
-        />
+        <div className="mt-24">
+          <Slider
+            imageList={SLIDER_IMAGES}
+            width={1915}
+            height={719}
+            showDotControls={false}
+          />
+        </div>
         <div className="flex items-center justify-center mt-4">
           <Link
             href="#"
@@ -32,10 +34,12 @@ export default function Home() {
             REORDER
           </Link>
         </div>
-        <Explore />
-        <Sellers />
-        <Deals />
-        <Hero />
+        <div className="pl-[300px] pr-[250px]">
+          <Explore />
+          <Sellers />
+          <Deals />
+          <Hero />
+        </div>
       </main>
       <Footer />
     </div>

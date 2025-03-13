@@ -5,6 +5,8 @@ import logoImage from "../../../public/logo.webp";
 import instaImage from "../../../public/instagram.png";
 import fbImage from "../../../public/facebook.png";
 import ytImage from "../../../public/youtube.png";
+import appStoreImage from "../../../public/app-store.png";
+import googlePlayImage from "../../../public/google-play.png";
 
 import Link from "next/link";
 
@@ -51,53 +53,103 @@ export default function Footer() {
             </Link>
           </div>
         </div>
-        <div className="grid grid-cols-3 pt-12 pl-[300px] pr-[260px]">
+        <div className="grid grid-cols-4 pt-12 pl-[300px] pr-[260px]">
           <div className="pl-8">
             <div className="mb-3">
-              <Link href="#" className="text-xl pb-0.5 hover:text-[#EA002A] ">
+              <Link
+                href="#"
+                className="text-xl pb-0.5 transition ease-in-out duration-300 hover:text-[#EA002A] "
+              >
                 About Us
               </Link>
             </div>
             <div className="mb-3">
-              <Link href="#" className="text-xl pb-0.5 hover:text-[#EA002A] ">
+              <Link
+                href="#"
+                className="text-xl pb-0.5 transition ease-in-out duration-300 hover:text-[#EA002A] "
+              >
                 Mitao Bhook
               </Link>{" "}
             </div>
             <div className="mb-3">
-              <Link href="#" className="text-xl pb-0.5 hover:text-[#EA002A] ">
+              <Link
+                href="#"
+                className="text-xl pb-0.5 transition ease-in-out duration-300 hover:text-[#EA002A] "
+              >
                 Mitao Bhook - Scholarship
               </Link>{" "}
             </div>
             <div className="mb-3">
-              <Link href="#" className="text-xl pb-0.5 hover:text-[#EA002A] ">
+              <Link
+                href="#"
+                className="text-xl pb-0.5 transition ease-in-out duration-300 hover:text-[#EA002A] "
+              >
                 Privacy Policy
               </Link>{" "}
             </div>
-            <Link href="#" className="text-xl pb-0.5 hover:text-[#EA002A] ">
+            <Link
+              href="#"
+              className="text-xl pb-0.5 transition ease-in-out duration-300 hover:text-[#EA002A] "
+            >
               Careers
             </Link>
           </div>
           <div className="pl-8">
             <div className="mb-3">
-              <Link href="#" className="text-xl pb-0.5 hover:text-[#EA002A] ">
+              <Link
+                href="#"
+                className="text-xl pb-0.5 transition ease-in-out duration-300 hover:text-[#EA002A] "
+              >
                 Contact Us
               </Link>
             </div>
             <div className="mb-3">
-              <Link href="#" className="text-xl pb-0.5 hover:text-[#EA002A] ">
+              <Link
+                href="#"
+                className="text-xl pb-0.5 transition ease-in-out duration-300 hover:text-[#EA002A] "
+              >
                 Store Locator
               </Link>
             </div>
             <div className="mb-3">
-              <Link href="#" className="text-xl pb-0.5 hover:text-[#EA002A] ">
+              <Link
+                href="#"
+                className="text-xl pb-0.5 transition ease-in-out duration-300 hover:text-[#EA002A] "
+              >
                 Track Order
               </Link>
             </div>
           </div>
           <div className="pl-8">
-            <Link href="#" className="text-xl pb-0.5 hover:text-[#EA002A] ">
+            <Link
+              href="#"
+              className="text-xl pb-0.5 transition ease-in-out duration-300 hover:text-[#EA002A] "
+            >
               Terms & Conditions
             </Link>
+          </div>
+          <div className="flex">
+            <div className="mr-5">
+              <Link href="#">
+                <Image
+                  src={appStoreImage}
+                  alt="Download on App Store"
+                  width={200}
+                  height="auto"
+                  className=""
+                />
+              </Link>
+            </div>
+            <div className="mt-0.5">
+              <Link href="#">
+                <Image
+                  src={googlePlayImage}
+                  alt="Get it on Play Store"
+                  width={200}
+                  height="auto"
+                />
+              </Link>
+            </div>
           </div>
         </div>
         <div className="mt-16 font-semibold ml-[300px] pb-10">
