@@ -9,7 +9,7 @@ import Link from "next/link";
 export default function Header() {
   return (
     <header>
-      <nav className="fixed z-10 top-0 bg-black">
+      <nav className="fixed z-10 top-0 bg-[#0A0A0A]">
         <div className="flex flex-row">
           {/* <nav> */}
           <div className={styles.header__logo}>
