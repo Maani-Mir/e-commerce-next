@@ -51,7 +51,7 @@ export default function Explore() {
 
       <div className="relative mt-12">
         <button
-          className={`absolute left-0 z-10 top-1/2 -translate-y-1/2 bg-red-700 rounded-full transition ${
+          className={`absolute left-0 z-10 top-1/2 -translate-y-1/2 rounded-full transition ${
             canScrollLeft ? "bg-[#AF001F] hover:bg-red-600" : "bg-[#3B000B]"
           }`}
           onClick={() => scroll(true)}
