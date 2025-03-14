@@ -2,6 +2,7 @@ import React from "react";
 import styles from "../../styles/deal-item.module.css";
 import Image from "next/image";
 import Link from "next/link";
+import heartIcon from "../../../public/like.png";
 
 export default function DealItem({ title, desc, price, image }) {
   //   console.log("the image in item", title);
@@ -12,6 +13,9 @@ export default function DealItem({ title, desc, price, image }) {
         <span className="bg-[#EA002A] px-2 py-1.5 mr-1.5"></span>
         <span className="bg-[#EA002A] px-2 py-1.5 mr-1.5"></span>
         <span className="bg-[#EA002A] px-2 py-1.5"></span>
+      </div>
+      <div className="flex justify-end pr-2.5 -mt-3">
+        <Image src={heartIcon} alt="heart-icon" width={30} height="auto" />
       </div>
       <Image
         className={styles.deal__item__image}
