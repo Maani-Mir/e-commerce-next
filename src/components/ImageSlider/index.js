@@ -10,8 +10,8 @@ export default function ImageSlider() {
     <div className="mt-24">
       <Slider
         imageList={SLIDER_IMAGES}
-        width={1915}
-        height={719}
+        width={1920}
+        height="auto"
         showDotControls={false}
       />
     </div>

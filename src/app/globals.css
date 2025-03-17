@@ -46,7 +46,7 @@ a {
 }
 
 @layer utilities {
-  .scrollbar::-webkit-scrollbar {
+  /* .scrollbar::-webkit-scrollbar {
     width: 5px;
     height: 5px;
   }
@@ -57,5 +57,34 @@ a {
 
   .scrollbar::-webkit-scrollbar-thumb {
     background: #333333;
+  } */
+
+  @supports (scrollbar-width: thin) {
+    .scrollbar {
+      scrollbar-width: thin;
+      /* scrollbar-color: #333333; */
+    }
+  }
+
+  @supports (scrollbar-color: #333333) {
+    .scrollbar {
+      /* scrollbar-width: thin; */
+      scrollbar-color: #333333;
+    }
+  }
+
+  @supports selector(::-webkit-scrollbar) {
+    .scrollbar::-webkit-scrollbar {
+      width: 5px;
+      height: 5px;
+    }
+
+    .scrollbar::-webkit-scrollbar-track {
+      background: #0a0a0a;
+    }
+
+    .scrollbar::-webkit-scrollbar-thumb {
+      background: #333333;
+    }
   }
 }

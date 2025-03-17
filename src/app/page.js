@@ -8,6 +8,7 @@ import Sellers from "@/components/Sellers";
 import Deals from "@/components/Deals";
 import Hero from "@/components/Hero";
 import ImageSlider from "@/components/ImageSlider";
+import ExploreMobile from "@/components/Explore/ExploreMobile";
 
 export default function Home() {
   return (
@@ -23,8 +24,15 @@ export default function Home() {
             REORDER
           </Link>
         </div>
-        <div className="pl-[300px] pr-[250px]">
-          <Explore />
+
+        <div className="pl-[40px] pr-[25px] md:pl-[100px] md:pr-[50px] lg:pl-[150px] lg:pr-[100px] xl:pl-[300px] xl:pr-[240px]">
+          <div className="md:hidden">
+            <ExploreMobile />
+          </div>
+
+          <div className="hidden md:block">
+            <Explore />
+          </div>
           <Sellers />
           <Deals />
           <Hero />

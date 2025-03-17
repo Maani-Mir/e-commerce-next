@@ -53,7 +53,7 @@ export default function Footer() {
             </Link>
           </div>
         </div>
-        <div className="grid grid-cols-4 pt-12 pl-[300px] pr-[260px]">
+        <div className="grid grid-cols-1 md:grid-cols-4 pt-12 md:pr-[50px] lg:pl-[150px] lg:pr-[100px] xl:pl-[300px] xl:pr-[250px]">
           <div className="pl-8">
             <div className="mb-3">
               <Link
@@ -120,7 +120,7 @@ export default function Footer() {
               </Link>
             </div>
           </div>
-          <div className="pl-8">
+          <div className="pl-8 pb-5 md:pb-0">
             <Link
               href="#"
               className="text-xl pb-0.5 transition ease-in-out duration-300 hover:text-[#EA002A] "
@@ -128,7 +128,7 @@ export default function Footer() {
               Terms & Conditions
             </Link>
           </div>
-          <div className="flex">
+          <div className="flex pl-5 md:pl-0">
             <div className="mr-5">
               <Link href="#">
                 <Image
@@ -152,7 +152,7 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <div className="mt-16 font-semibold ml-[300px] pb-10">
+        <div className="mt-16 font-semibold pl-4 md:ml-[300px] pb-10 inline-block">
           2025 KFC. All rights reserved
         </div>
       </div>
