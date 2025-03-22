@@ -1,16 +1,16 @@
-.deal__item__card {
+/* .deal__item__card {
   flex: 0 0 auto;
   background-color: #1c1816;
   margin-right: 16px;
   box-sizing: border-box;
-  text-align: left; /* to center elements inside a div */
+  text-align: left; to center elements inside a div
   padding-left: 10px;
   margin-bottom: 16px;
   padding-top: 10px;
   border-radius: 16px;
   width: 322px;
   height: auto;
-}
+} */
 
 .deal__item__image {
   transition: transform 0.3s ease-in-out;

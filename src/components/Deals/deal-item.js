@@ -8,7 +8,7 @@ export default function DealItem({ title, desc, price, image }) {
   //   console.log("the image in item", title);
   //   console.log("the title in item", image);
   return (
-    <div className={styles.deal__item__card}>
+    <div className="flex-grow-0 flex-shrink-0 basis-auto bg-[#1c1816] mr-4 box-border text-left pl-2.5 mb-4 pt-2.5 rounded-2xl w-80 h-auto group">
       <div className="text-center -m-1.5">
         <span className="bg-[#EA002A] px-2 py-1.5 mr-1.5"></span>
         <span className="bg-[#EA002A] px-2 py-1.5 mr-1.5"></span>
@@ -18,7 +18,7 @@ export default function DealItem({ title, desc, price, image }) {
         <Image src={heartIcon} alt="heart-icon" width={30} height="auto" />
       </div>
       <Image
-        className={styles.deal__item__image}
+        className="transition duration-300 ease-in-out group-hover:[transform:perspective(200px)_translateZ(10px)]"
         src={image}
         alt="deal-menu-image"
         width={300}
