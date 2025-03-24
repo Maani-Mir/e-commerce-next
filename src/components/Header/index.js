@@ -10,7 +10,7 @@ import Sidebar from "../SideBar";
 
 export default function Header() {
   return (
-    <header className=" fixed z-10 top-0 w-full bg-[#0A0A0A] ">
+    <header className=" fixed z-10 top-0 w-full bg-white dark:bg-[#0A0A0A] ">
       <nav className="xl:mx-32 2xl:mx-64">
         <div className="mt-4 mx-4 sm:mx-12 sm:mt-8 sm:flex sm:justify-between lg:mt-12 lg:flex-none lg:mb-4">
           <div className="lg:flex">
@@ -26,13 +26,13 @@ export default function Header() {
             <div className="hidden lg:block lg:ml-12">
               <Link
                 href="#"
-                className="bg-[#1C1816] p-2.5 px-5 lg:px-12 rounded-lg font-bold tracking-wide text-sm border-2 border-[#EA002A]"
+                className="bg-[#F5FAFF] dark:bg-[#1C1816] text-black dark:text-white  p-2.5 px-5 lg:px-12 rounded-lg font-bold tracking-wide text-sm border-2 border-[#EA002A]"
               >
                 DELIVERY
               </Link>
               <Link
                 href="#"
-                className="bg-[#1C1816] ml-5 p-2.5 px-5 lg:px-12 rounded-lg font-bold tracking-wide text-sm"
+                className="bg-[#F5FAFF] dark:bg-[#1C1816] text-black dark:text-white ml-5 p-2.5 px-5 lg:px-12 rounded-lg font-bold tracking-wide text-sm"
               >
                 PICKUP
               </Link>
@@ -41,7 +41,7 @@ export default function Header() {
           <div className="hidden sm:block">
             <Link
               href="#"
-              className="bg-[#EA002A] p-2.5 rounded-lg font-bold px-3.5 text-sm "
+              className="bg-[#EA002A] text-white p-2.5 rounded-lg font-bold px-3.5 text-sm "
             >
               LOGIN
             </Link>
@@ -50,13 +50,13 @@ export default function Header() {
         <div className="flex justify-evenly mx-10 mt-6 mb-2 sm:justify-center sm:mx-0 sm:mt-4 lg:hidden">
           <Link
             href="#"
-            className="bg-[#1C1816] p-2.5 px-5 sm:px-9 rounded-lg font-bold tracking-wide text-sm border-2 border-[#EA002A]"
+            className="bg-[#F5FAFF] dark:bg-[#1C1816] text-black dark:text-white p-2.5 px-5 sm:px-9 rounded-lg font-bold tracking-wide text-sm border-2 border-[#EA002A]"
           >
             DELIVERY
           </Link>
           <Link
             href="#"
-            className="bg-[#1C1816] ml-5 p-2.5 px-5 sm:px-9 rounded-lg font-bold tracking-wide text-sm"
+            className="bg-[#F5FAFF] dark:bg-[#1C1816] text-black dark:text-white ml-5 p-2.5 px-5 sm:px-9 rounded-lg font-bold tracking-wide text-sm"
           >
             PICKUP
           </Link>

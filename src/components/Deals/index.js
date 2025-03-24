@@ -7,10 +7,12 @@ export default function Deals() {
   return (
     <div>
       <div className="mt-10">
-        <h2 className="text-3xl font-sans -tracking-widest">TOP DEALS</h2>
+        <h2 className="text-3xl font-sans font-bold tracking-tighter text-black dark:text-white">
+          TOP DEALS
+        </h2>
         <div className="border-[#EA002A] border-b-4 w-20 ml-0.5 pt-0.5"></div>
       </div>
-      <div className="flex flex-nowrap mt-10 overflow-x-scroll scrollbar">
+      <div className="flex flex-nowrap mt-10 overflow-x-scroll md:overflow-x-auto scrollbar">
         {DEAL_MENU.map(({ title, desc, price, imgURL }, index) => {
           return (
             <DealItem

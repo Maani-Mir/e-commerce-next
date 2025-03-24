@@ -37,7 +37,7 @@ export default function Hero() {
           height="auto"
         />
       </div>
-      <div className="flex flex-col items-center bg-[#1C1816] rounded-2xl  ">
+      <div className="flex flex-col items-center bg-white dark:bg-[#1C1816] rounded-2xl  ">
         <Image
           className="shrink"
           src={Hero4}
@@ -45,7 +45,7 @@ export default function Hero() {
           width={260}
           height="auto"
         />
-        <p className="pl-6 pt-5 text-xl pr-6 font-bold tracking-wide text-center">
+        <p className="pl-6 pt-5 text-xl pr-6 font-bold tracking-wide text-center text-black dark:text-white">
           Adding 11 herbs and spices, Explore our menu and add items to your
           cart.
         </p>
@@ -55,7 +55,7 @@ export default function Hero() {
         <div className="shrink text-center pt-7 ">
           <Link
             href="#"
-            className="bg-[#EA002A] p-3 rounded-lg font-bold px-10 text-xl"
+            className="bg-[#EA002A] p-3 rounded-lg font-bold px-10 text-xl text-white"
           >
             EXPLORE MENU
           </Link>

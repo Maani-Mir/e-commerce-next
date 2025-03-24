@@ -7,7 +7,7 @@ import SLIDER_IMAGES from "../../constants/image-sliders";
 
 export default function ImageSlider() {
   return (
-    <div className="mt-[123px] sm:mt-[131px] lg:mt-[96px]">
+    <div className="mt-[123px] sm:mt-[130px] lg:mt-[92px]">
       <Slider
         imageList={SLIDER_IMAGES}
         width={1920}

@@ -12,20 +12,20 @@ import ExploreMobile from "@/components/Explore/ExploreMobile";
 
 export default function Home() {
   return (
-    <div>
+    <div className=" bg-[#F1F3F6] dark:bg-black">
       <Header />
       <main>
         <ImageSlider />
-        <div className="flex items-center justify-center mt-4">
+        <div className=" flex items-center justify-center mt-4">
           <Link
             href="#"
-            className="bg-[#EA002A] p-1 rounded-md font-semibold px-96 text-base"
+            className="bg-[#EA002A] text-white p-1 rounded-md font-semibold px-96 text-base"
           >
             REORDER
           </Link>
         </div>
 
-        <div className="pl-[40px] pr-[25px] md:pl-[100px] md:pr-[50px] lg:pl-[150px] lg:pr-[100px] xl:pl-[300px] xl:pr-[240px]">
+        <div className=" pl-[40px] pr-[25px] md:pl-[100px] md:pr-[50px] lg:pl-[150px] lg:pr-[100px] xl:pl-[300px] xl:pr-[240px]">
           <div className="md:hidden">
             <ExploreMobile />
           </div>

@@ -40,24 +40,28 @@ export default function Explore() {
         scrollContainer.removeEventListener("scroll", checkScroll);
       }
     };
-  });
+  }, []);
 
   return (
-    <div className="mt-12">
+    <div className=" mt-12">
       <div className="">
-        <h2 className="text-3xl -tracking-widest font-sans">EXPLORE MENU</h2>
+        <h2 className="text-3xl tracking-tighter font-bold font-sans text-black dark:text-white ">
+          EXPLORE MENU
+        </h2>
         <div className="border-[#EA002A] border-b-4 w-20 ml-0.5 pt-0.5"></div>
       </div>
 
       <div className="relative mt-12">
         <button
           className={`absolute left-0 top-1/2 -translate-y-1/2 rounded-full transition ${
-            canScrollLeft ? "bg-[#AF001F] hover:bg-red-600" : "bg-[#3B000B]"
+            canScrollLeft
+              ? " bg-[#EB3D5D] dark:bg-[#AF001F] hover:bg-red-600 dark:hover:bg-red-600"
+              : " bg-[#F0B6C3] dark:bg-[#3B000B] "
           }`}
           onClick={() => scroll(true)}
           disabled={!canScrollLeft}
         >
-          <ChevronLeft className="text-black" />
+          <ChevronLeft className="text-white dark:text-black" />
         </button>
         <div
           ref={scrollRef}
@@ -69,12 +73,14 @@ export default function Explore() {
         </div>
         <button
           className={`absolute right-0 top-1/2 -translate-y-1/2 rounded-full transition ${
-            canScrollRight ? "bg-[#AF001F] hover:bg-red-600" : "bg-[#3B000B]"
+            canScrollRight
+              ? " bg-[#EB3D5D] dark:bg-[#AF001F] hover:bg-red-600 dark:hover:bg-red-600"
+              : " bg-[#F0B6C3] dark:bg-[#3B000B] "
           }`}
           onClick={() => scroll(false)}
           disabled={!canScrollRight}
         >
-          <ChevronRight className="text-black" />
+          <ChevronRight className="text-white dark:text-black" />
         </button>
       </div>
     </div>

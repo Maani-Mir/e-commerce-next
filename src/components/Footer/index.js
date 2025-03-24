@@ -12,7 +12,7 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#1C1816]">
+    <footer className="bg-[#F1F3F6] dark:bg-[#1C1816]">
       <div className=" mt-16">
         <div className="flex items-center justify-center pt-12 ">
           <Image
@@ -58,7 +58,7 @@ export default function Footer() {
             <div className="mb-3">
               <Link
                 href="#"
-                className="text-xl pb-0.5 transition ease-in-out duration-300 hover:text-[#EA002A] "
+                className=" text-black dark:text-white text-xl pb-0.5 transition ease-in-out duration-300 hover:text-[#EA002A] "
               >
                 About Us
               </Link>
@@ -66,7 +66,7 @@ export default function Footer() {
             <div className="mb-3">
               <Link
                 href="#"
-                className="text-xl pb-0.5 transition ease-in-out duration-300 hover:text-[#EA002A] "
+                className=" text-black dark:text-white text-xl pb-0.5 transition ease-in-out duration-300 hover:text-[#EA002A] "
               >
                 Mitao Bhook
               </Link>{" "}
@@ -74,7 +74,7 @@ export default function Footer() {
             <div className="mb-3">
               <Link
                 href="#"
-                className="text-xl pb-0.5 transition ease-in-out duration-300 hover:text-[#EA002A] "
+                className=" text-black dark:text-white text-xl pb-0.5 transition ease-in-out duration-300 hover:text-[#EA002A] "
               >
                 Mitao Bhook - Scholarship
               </Link>{" "}
@@ -82,14 +82,14 @@ export default function Footer() {
             <div className="mb-3">
               <Link
                 href="#"
-                className="text-xl pb-0.5 transition ease-in-out duration-300 hover:text-[#EA002A] "
+                className=" text-black dark:text-white text-xl pb-0.5 transition ease-in-out duration-300 hover:text-[#EA002A] "
               >
                 Privacy Policy
               </Link>{" "}
             </div>
             <Link
               href="#"
-              className="text-xl pb-0.5 transition ease-in-out duration-300 hover:text-[#EA002A] "
+              className=" text-black dark:text-white text-xl pb-0.5 transition ease-in-out duration-300 hover:text-[#EA002A] "
             >
               Careers
             </Link>
@@ -98,7 +98,7 @@ export default function Footer() {
             <div className="mb-3">
               <Link
                 href="#"
-                className="text-xl pb-0.5 transition ease-in-out duration-300 hover:text-[#EA002A] "
+                className=" text-black dark:text-white text-xl pb-0.5 transition ease-in-out duration-300 hover:text-[#EA002A] "
               >
                 Contact Us
               </Link>
@@ -106,7 +106,7 @@ export default function Footer() {
             <div className="mb-3">
               <Link
                 href="#"
-                className="text-xl pb-0.5 transition ease-in-out duration-300 hover:text-[#EA002A] "
+                className=" text-black dark:text-white text-xl pb-0.5 transition ease-in-out duration-300 hover:text-[#EA002A] "
               >
                 Store Locator
               </Link>
@@ -114,7 +114,7 @@ export default function Footer() {
             <div className="mb-3">
               <Link
                 href="#"
-                className="text-xl pb-0.5 transition ease-in-out duration-300 hover:text-[#EA002A] "
+                className=" text-black dark:text-white text-xl pb-0.5 transition ease-in-out duration-300 hover:text-[#EA002A] "
               >
                 Track Order
               </Link>
@@ -123,7 +123,7 @@ export default function Footer() {
           <div className="pl-8 pb-5 md:pb-0">
             <Link
               href="#"
-              className="text-xl pb-0.5 transition ease-in-out duration-300 hover:text-[#EA002A] "
+              className=" text-black dark:text-white text-xl pb-0.5 transition ease-in-out duration-300 hover:text-[#EA002A] "
             >
               Terms & Conditions
             </Link>
@@ -152,7 +152,7 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <div className="mt-16 font-semibold pl-4 md:ml-[300px] pb-10 inline-block">
+        <div className=" text-black dark:text-white mt-16 font-semibold pl-4 md:ml-[300px] pb-10 inline-block">
           2025 KFC. All rights reserved
         </div>
       </div>
