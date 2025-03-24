@@ -1,23 +1,24 @@
-import { useState } from "react";
-
-// import Home from "@/app/page";
-
 export default function ToggleTheme() {
-  const [darkMode, setDarkMode] = useState(false);
-
   function toggleDarkMode() {
-    setDarkMode((prev) => !prev);
+    if (!document.documentElement.classList.add("dark")) {
+      document.documentElement.classList.add("dark");
+    }
+  }
+
+  function toggleLightMode() {
+    if (document.documentElement.classList.contains("dark")) {
+      document.documentElement.classList.remove("dark");
+    }
   }
 
   return (
-    <div className="flex bg-black rounded-lg mt-8 w-20 ml-44">
-      <div className="bg-red-600 text-white rounded-lg w-10">
-        <button onClick={toggleDarkMode}>Day</button>
-        {/* <Home darkMode={darkMode} /> */}
+    <div className="flex bg-white dark:bg-black rounded-full mt-8 w-28 ml-40">
+      <div className="bg-[#EA002A] dark:bg-black text-white font-bold rounded-full p-2 pl-3 w-14">
+        <button onClick={toggleLightMode}>Day</button>
       </div>
 
-      <div className="bg-blue-600 text-white rounded-lg w-12">
-        <button>Night</button>
+      <div className="bg-white text-black dark:bg-[#EA002A] dark:text-white font-bold rounded-full p-2 pl-2.5 w-16">
+        <button onClick={toggleDarkMode}>Night</button>
       </div>
     </div>
   );

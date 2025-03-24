@@ -45,7 +45,7 @@ export default function Sidebar() {
         <div className="flex fixed inset-0 bg-black/50 z-30">
           <div
             ref={sidebarRef}
-            className="z-30 fixed top-0 left-0 bg-[#1C1816] w-[298px] h-full pt-7 pl-4 ease-in-out duration-300 pr-4"
+            className="z-30 fixed top-0 left-0 bg-[#F1F3F6] dark:bg-[#1C1816] w-[298px] h-full pt-7 pl-4 ease-in-out duration-300 pr-4"
           >
             <Link
               href="#"
@@ -58,7 +58,7 @@ export default function Sidebar() {
               <li>
                 <Link
                   href="#"
-                  className="flex items-center p-2.5 transition-all duration-200 hover:bg-[#9E9E9E] text-white hover:pl-0.5"
+                  className="flex items-center p-2.5 transition-all duration-200 hover:bg-[#9E9E9E] text-black dark:text-white hover:pl-0.5"
                 >
                   <Image src={StoreIcon} alt="store-icon" width={28} />
                   <p className="ms-3 text-lg">Store Locator</p>
@@ -67,7 +67,7 @@ export default function Sidebar() {
               <li>
                 <Link
                   href="#"
-                  className="flex items-center p-2.5 transition-all duration-200 hover:bg-[#9E9E9E] text-white hover:pl-0.5"
+                  className="flex items-center p-2.5 transition-all duration-200 hover:bg-[#9E9E9E] text-black dark:text-white hover:pl-0.5"
                 >
                   <Image src={TrackIcon} alt="store-icon" width={28} />
 
@@ -77,7 +77,7 @@ export default function Sidebar() {
               <li>
                 <Link
                   href="#"
-                  className="flex items-center p-2.5 transition-all duration-200 hover:bg-[#9E9E9E] text-white hover:pl-0.5"
+                  className="flex items-center p-2.5 transition-all duration-200 hover:bg-[#9E9E9E] text-black dark:text-white hover:pl-0.5"
                 >
                   <Image src={ExploreIcon} alt="store-icon" width={28} />
 
@@ -89,7 +89,7 @@ export default function Sidebar() {
               <li>
                 <Link
                   href="#"
-                  className="flex p-2.5 transition-all duration-200 ease-in-out hover:pl-0 hover:bg-[#9E9E9E] text-white"
+                  className="flex p-2.5 transition-all duration-200 ease-in-out hover:pl-0 hover:bg-[#9E9E9E] text-black dark:text-white"
                 >
                   <p className="ms-3 text-lg ">About Us</p>
                 </Link>
@@ -97,7 +97,7 @@ export default function Sidebar() {
               <li>
                 <Link
                   href="#"
-                  className="flex p-2.5 transition-all duration-200 ease-in-out translate-x-0 hover:bg-[#9E9E9E] text-white hover:pl-0"
+                  className="flex p-2.5 transition-all duration-200 ease-in-out translate-x-0 hover:bg-[#9E9E9E] text-black dark:text-white hover:pl-0"
                 >
                   <p className="ms-3 text-lg">FeedBack</p>
                 </Link>
@@ -105,7 +105,7 @@ export default function Sidebar() {
               <li>
                 <Link
                   href="#"
-                  className="flex p-2.5 transition-all duration-200 hover:bg-[#9E9E9E] text-white hover:pl-0"
+                  className="flex p-2.5 transition-all duration-200 hover:bg-[#9E9E9E] text-black dark:text-white hover:pl-0"
                 >
                   <p className="ms-3 text-lg">Terms & Conditions</p>
                 </Link>
@@ -113,7 +113,7 @@ export default function Sidebar() {
               <li>
                 <Link
                   href="#"
-                  className="flex p-2.5 transition-all duration-200 hover:bg-[#9E9E9E] text-white hover:pl-0"
+                  className="flex p-2.5 transition-all duration-200 hover:bg-[#9E9E9E] text-black dark:text-white hover:pl-0"
                 >
                   <p className="ms-3 text-lg">Privacy Policy</p>
                 </Link>
@@ -121,7 +121,7 @@ export default function Sidebar() {
               <li>
                 <Link
                   href="#"
-                  className="flex p-2.5 transition-all duration-200 hover:bg-[#9E9E9E] text-white hover:pl-0"
+                  className="flex p-2.5 transition-all duration-200 hover:bg-[#9E9E9E] text-black dark:text-white hover:pl-0"
                 >
                   <p className="ms-3 text-lg">Contact Us</p>
                 </Link>
@@ -129,7 +129,7 @@ export default function Sidebar() {
               <li>
                 <Link
                   href="#"
-                  className="flex p-2.5 transition-all duration-200 hover:bg-[#9E9E9E] text-white hover:pl-0"
+                  className="flex p-2.5 transition-all duration-200 hover:bg-[#9E9E9E] text-black dark:text-white hover:pl-0"
                 >
                   <p className="ms-3 text-lg">Mitao Bhook</p>
                 </Link>
@@ -137,7 +137,7 @@ export default function Sidebar() {
               <li>
                 <Link
                   href="#"
-                  className="flex p-2.5 transition-all duration-200 hover:bg-[#9E9E9E] text-white hover:pl-0"
+                  className="flex p-2.5 transition-all duration-200 hover:bg-[#9E9E9E] text-black dark:text-white hover:pl-0"
                 >
                   <p className="ms-3 text-lg">Mitao Bhook - Scholarship</p>
                 </Link>
@@ -145,7 +145,7 @@ export default function Sidebar() {
               <li>
                 <Link
                   href="#"
-                  className="flex p-2.5 transition-all duration-200 hover:bg-[#9E9E9E] text-white hover:pl-0"
+                  className="flex p-2.5 transition-all duration-200 hover:bg-[#9E9E9E] text-black dark:text-white hover:pl-0"
                 >
                   <p className="ms-3 text-lg">Careers</p>
                 </Link>
