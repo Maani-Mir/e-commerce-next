@@ -8,14 +8,24 @@ import ExploreItem from "./explore-item";
 
 export default function Explore() {
   const scrollRef = useRef(null);
-  const [canScrollLeft, setCanScrollLeft] = useState(false);
-  const [canScrollRight, setCanScrollRight] = useState(true);
+  const canScrollLeft = useRef(false);
+  const canScrollRight = useRef(true);
+  const [, setIsScrolling] = useState(false); // to trigger re-render
+
+  // const [canScrollLeft, setCanScrollLeft] = useState(false);
+  // const [canScrollRight, setCanScrollRight] = useState(true);
 
   const checkScroll = () => {
     if (scrollRef.current) {
       const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
-      setCanScrollLeft(scrollLeft > 0);
-      setCanScrollRight(scrollLeft < scrollWidth - clientWidth);
+      const newCanScrollLeft = scrollLeft > 0;
+      const newCanScrollRight = scrollLeft < scrollWidth - clientWidth;
+
+      //no re-renders here
+      canScrollLeft.current = newCanScrollLeft;
+      canScrollRight.current = newCanScrollRight;
+
+      setIsScrolling((prev) => !prev); //only if state has changed
     }
   };
 
@@ -54,12 +64,12 @@ export default function Explore() {
       <div className="relative mt-12">
         <button
           className={`absolute left-0 top-1/2 -translate-y-1/2 rounded-full transition ${
-            canScrollLeft
+            canScrollLeft.current
               ? " bg-[#EB3D5D] dark:bg-[#AF001F] hover:bg-red-600 dark:hover:bg-red-600"
               : " bg-[#F0B6C3] dark:bg-[#3B000B] "
           }`}
           onClick={() => scroll(true)}
-          disabled={!canScrollLeft}
+          disabled={!canScrollLeft.current}
         >
           <ChevronLeft className="text-white dark:text-black" />
         </button>
@@ -73,12 +83,12 @@ export default function Explore() {
         </div>
         <button
           className={`absolute right-0 top-1/2 -translate-y-1/2 rounded-full transition ${
-            canScrollRight
+            canScrollRight.current
               ? " bg-[#EB3D5D] dark:bg-[#AF001F] hover:bg-red-600 dark:hover:bg-red-600"
               : " bg-[#F0B6C3] dark:bg-[#3B000B] "
           }`}
           onClick={() => scroll(false)}
-          disabled={!canScrollRight}
+          disabled={!canScrollRight.current}
         >
           <ChevronRight className="text-white dark:text-black" />
         </button>
