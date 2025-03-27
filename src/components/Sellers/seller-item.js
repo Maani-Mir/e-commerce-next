@@ -4,14 +4,7 @@ import React, { useState } from "react";
 import styles from "../../styles/seller-item.module.css";
 import Image from "next/image";
 import SellerDialogItem from "../SellerDialog/SellerDialogItem";
-
-const itemDescriptions = {
-  'Krunch Burger': 'Krunch fillet, spicy mayo, lettuce, sandwiched between a sesame seed bun',
-  'Krunch Combo': '1 Krunch burger + 1 Regular fries + 1 Regular drink',
-  'Chicken & Chips': '2 pieces of Hot and Crispy Fried Chicken+ Fries + Dinner roll+ signature Vietnamese Sauce',
-  'Hot Wings Bucket': '10 Pcs of our Signature Hot & Crispy Wings',
-  'Mighty Zinger': 'Our signature Zinger but Bigger! Double Zinger fillet with a combination of spicy and plain mayo, lettuce and cheese- sandwiched between a sesame seed bun',
-};
+import ITEM_DESCRIPTIONS from "@/constants/item-descriptions";
 
 export default function SellerItem({ title, image, price }) {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
@@ -22,7 +15,7 @@ export default function SellerItem({ title, image, price }) {
   const item = {
     name: title,
     price: parseInt(price.replace('Rs', '')),
-    description: itemDescriptions[title] || `${title} - A delicious treat from our menu`,
+    description: ITEM_DESCRIPTIONS[title] || `${title} - A delicious treat from our menu`,
     image: image
   };
 
