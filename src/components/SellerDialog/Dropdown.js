@@ -18,12 +18,15 @@ const Dropdown = ({
           isOpen ? "rounded-b-none" : ""
         }`}
       >
-        <span className="text-lg font-bold">
-          {title}
-          {required && " (Required)"}
-          {optional && " (Optional)"}
-        </span>
-        {isOpen ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+        <span className="text-lg font-bold">{title}</span>
+        <div className="flex items-center gap-2">
+          {(required || optional) && (
+            <span className="text-base font-bold">
+              {required ? "(Required)" : "(Optional)"}
+            </span>
+          )}
+          {isOpen ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+        </div>
       </button>
       <div
         className={`transform transition-all duration-300 ease-in-out origin-top ${
