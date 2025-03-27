@@ -29,9 +29,10 @@ const ADD_ONS = [
 
 const SellerDialogItem = ({ isOpen, onClose, item }) => {
   const [quantity, setQuantity] = useState(1);
-  const [activeDropdown, setActiveDropdown] = useState(null); // 'drink' or 'addons' or null
+  const [activeDropdown, setActiveDropdown] = useState(null);
   const [drinkQuantities, setDrinkQuantities] = useState({});
   const [addOnQuantities, setAddOnQuantities] = useState({});
+  const [selectedKrunchDrink, setSelectedKrunchDrink] = useState(DRINKS[0].name);
 
   useEffect(() => {
     if (isOpen) {
@@ -142,13 +143,15 @@ const SellerDialogItem = ({ isOpen, onClose, item }) => {
   const calculateTotal = () => {
     let total = item.price * quantity;
     
-    // Add drinks total
-    Object.entries(drinkQuantities).forEach(([drinkName, qty]) => {
-      const drink = DRINKS.find(d => d.name === drinkName);
-      if (drink) {
-        total += drink.price * qty;
-      }
-    });
+    // Add drinks total (except for Krunch Combo)
+    if (item.name !== 'Krunch Combo') {
+      Object.entries(drinkQuantities).forEach(([drinkName, qty]) => {
+        const drink = DRINKS.find(d => d.name === drinkName);
+        if (drink) {
+          total += drink.price * qty;
+        }
+      });
+    }
 
     // Add add-ons total
     Object.entries(addOnQuantities).forEach(([addOnName, qty]) => {
@@ -188,6 +191,7 @@ const SellerDialogItem = ({ isOpen, onClose, item }) => {
         <div className="mt-8 flex gap-6 overflow-y-auto">
           {/* Left Section */}
           <div className="w-[450px] flex-shrink-0">
+            {/* Choose an option / Fries Section */}
             <div className="mb-6">
               <button 
                 onClick={() => toggleDropdown('option')}
@@ -195,7 +199,10 @@ const SellerDialogItem = ({ isOpen, onClose, item }) => {
                   activeDropdown === 'option' ? 'rounded-b-none' : ''
                 }`}
               >
-                <span className="text-lg font-bold">Choose an option</span>
+                <span className="text-lg font-bold">
+                  {item.name === 'Krunch Combo' ? 'Fries (Required)' :
+                   'Choose an option'}
+                </span>
                 {activeDropdown === 'option' ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
               </button>
               <div 
@@ -209,7 +216,12 @@ const SellerDialogItem = ({ isOpen, onClose, item }) => {
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-3">
                       <div className="w-4 h-4 rounded-full bg-[#EA002A]"></div>
-                      <span className="text-white text-lg">{item.name}</span>
+                      <span className="text-white text-lg">
+                        {item.name === 'Krunch Combo' ? 'Regular Fries' :
+                         item.name === 'Chicken & Chips' ? '2 Pcs' :
+                         item.name === 'Hot Wings Bucket' ? '10 Pcs' :
+                         item.name}
+                      </span>
                     </div>
                     <span className="text-white text-lg">+Rs {item.price}</span>
                   </div>
@@ -217,63 +229,87 @@ const SellerDialogItem = ({ isOpen, onClose, item }) => {
               </div>
             </div>
 
-            {/* Drink Section */}
-            <div className="mb-6">
-              <button 
-                onClick={() => toggleDropdown('drink')}
-                className={`w-full bg-[#EA002A] text-white py-5 px-6 rounded-lg text-left flex justify-between items-center ${
-                  activeDropdown === 'drink' ? 'rounded-b-none' : ''
-                }`}
-              >
-                <span className="text-lg font-bold">Drink (Optional)</span>
-                {activeDropdown === 'drink' ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
-              </button>
-              <div 
-                className={`transform transition-all duration-300 ease-in-out origin-top ${
-                  activeDropdown === 'drink' 
-                    ? 'opacity-100 max-h-[400px] overflow-y-auto' 
-                    : 'opacity-0 max-h-0 overflow-hidden'
-                }`}
-              >
-                <div className="bg-black rounded-b-lg p-6">
-                  {DRINKS.map((drink, index) => (
-                    <div key={index} className="flex items-center justify-between mb-6 last:mb-0">
-                      <div className="flex items-center gap-4">
-                        <Image src={drink.image} alt={drink.name} width={60} height={60} className="object-contain" />
-                        <div>
-                          <span className="text-white text-lg block">{drink.name}</span>
-                          <span className="text-gray-400">(+Rs {drink.price})</span>
-                        </div>
-                      </div>
-                      {drinkQuantities[drink.name] ? (
-                        <div className="flex items-center gap-4">
-                          <button
-                            onClick={() => decreaseDrinkQuantity(drink.name)}
-                            className="text-white hover:text-red-500"
-                          >
-                            {drinkQuantities[drink.name] === 1 ? <Trash2 size={24} /> : <Minus size={24} />}
-                          </button>
-                          <span className="text-white text-xl w-8 text-center">{drinkQuantities[drink.name]}</span>
-                          <button
-                            onClick={() => increaseDrinkQuantity(drink.name)}
-                            className="text-white hover:text-red-500"
-                          >
-                            <Plus size={24} />
-                          </button>
-                        </div>
-                      ) : (
-                        <button
-                          onClick={() => handleDrinkSelect(drink)}
-                          className="bg-[#EA002A] text-white px-6 py-2 rounded text-lg font-medium hover:bg-red-700"
-                        >
-                          ADD
-                        </button>
-                      )}
+            {/* Drink Section - Hide for Hot Wings Bucket */}
+            {item.name !== 'Hot Wings Bucket' && (
+              <div className="mb-6">
+                <button 
+                  onClick={() => toggleDropdown('drink')}
+                  className={`w-full bg-[#EA002A] text-white py-5 px-6 rounded-lg text-left flex justify-between items-center ${
+                    activeDropdown === 'drink' ? 'rounded-b-none' : ''
+                  }`}
+                >
+                  <span className="text-lg font-bold">
+                    Drink {item.name === 'Krunch Combo' ? '(Required)' : '(Optional)'}
+                  </span>
+                  {activeDropdown === 'drink' ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+                </button>
+                <div 
+                  className={`transform transition-all duration-300 ease-in-out origin-top ${
+                    activeDropdown === 'drink' 
+                      ? 'opacity-100 max-h-[400px] overflow-y-auto bg-black rounded-b-lg p-6' 
+                      : 'opacity-0 max-h-0 overflow-hidden'
+                  }`}
+                >
+                  {item.name === 'Krunch Combo' ? (
+                    // Radio button list for Krunch Combo
+                    <div className="space-y-4">
+                      {DRINKS.map((drink, index) => (
+                        <label key={index} className="flex items-center gap-4 cursor-pointer">
+                          <div className="relative flex items-center">
+                            <input
+                              type="radio"
+                              name="drink-option"
+                              value={drink.name}
+                              checked={selectedKrunchDrink === drink.name}
+                              onChange={(e) => setSelectedKrunchDrink(e.target.value)}
+                              className="w-4 h-4 appearance-none rounded-full border-2 border-[#EA002A] checked:bg-[#EA002A] checked:border-transparent"
+                            />
+                          </div>
+                          <span className="text-white text-lg">{drink.name}</span>
+                        </label>
+                      ))}
                     </div>
-                  ))}
+                  ) : (
+                    // Regular drink selection for other items
+                    DRINKS.map((drink, index) => (
+                      <div key={index} className="flex items-center justify-between mb-6 last:mb-0">
+                        <div className="flex items-center gap-4">
+                          <Image src={drink.image} alt={drink.name} width={60} height={60} className="object-contain" />
+                          <div>
+                            <span className="text-white text-lg block">{drink.name}</span>
+                            <span className="text-gray-400">(+Rs {drink.price})</span>
+                          </div>
+                        </div>
+                        {drinkQuantities[drink.name] ? (
+                          <div className="flex items-center gap-4">
+                            <button
+                              onClick={() => decreaseDrinkQuantity(drink.name)}
+                              className="text-white hover:text-red-500"
+                            >
+                              {drinkQuantities[drink.name] === 1 ? <Trash2 size={24} /> : <Minus size={24} />}
+                            </button>
+                            <span className="text-white text-xl w-8 text-center">{drinkQuantities[drink.name]}</span>
+                            <button
+                              onClick={() => increaseDrinkQuantity(drink.name)}
+                              className="text-white hover:text-red-500"
+                            >
+                              <Plus size={24} />
+                            </button>
+                          </div>
+                        ) : (
+                          <button
+                            onClick={() => handleDrinkSelect(drink)}
+                            className="bg-[#EA002A] text-white px-6 py-2 rounded text-lg font-medium hover:bg-red-700"
+                          >
+                            ADD
+                          </button>
+                        )}
+                      </div>
+                    ))
+                  )}
                 </div>
               </div>
-            </div>
+            )}
 
             {/* Add Ons Section */}
             <div className="mb-6">
