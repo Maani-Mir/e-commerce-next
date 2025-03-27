@@ -1,7 +1,8 @@
 "use client";
 import React, { useState, useEffect } from 'react';
-import { X, Plus, Minus, ChevronDown, ChevronUp, Trash2, ChevronRight } from 'lucide-react';
-import Image from 'next/image';
+import { X } from 'lucide-react';
+import DialogLeftSection from './DialogLeftSection';
+import DialogRightSection from './DialogRightSection';
 import DRINKS from '@/constants/drinks';
 import ADD_ONS from '@/constants/add-ons';
 
@@ -86,12 +87,6 @@ const SellerDialogItem = ({ isOpen, onClose, item }) => {
     }
   };
 
-  const removeDrink = (drinkName) => {
-    const newQuantities = { ...drinkQuantities };
-    delete newQuantities[drinkName];
-    setDrinkQuantities(newQuantities);
-  };
-
   const increaseAddOnQuantity = (addOnName) => {
     setAddOnQuantities({
       ...addOnQuantities,
@@ -110,12 +105,6 @@ const SellerDialogItem = ({ isOpen, onClose, item }) => {
         [addOnName]: addOnQuantities[addOnName] - 1
       });
     }
-  };
-
-  const removeAddOn = (addOnName) => {
-    const newQuantities = { ...addOnQuantities };
-    delete newQuantities[addOnName];
-    setAddOnQuantities(newQuantities);
   };
 
   const calculateTotal = () => {
@@ -144,7 +133,7 @@ const SellerDialogItem = ({ isOpen, onClose, item }) => {
 
   return (
     <div 
-      className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+      className="fixed inset-0 bg-black dark:bg-white bg-opacity-50 dark:bg-opacity-50 flex items-center justify-center z-50"
       onClick={(e) => {
         if (e.target === e.currentTarget) {
           onClose();
@@ -166,236 +155,30 @@ const SellerDialogItem = ({ isOpen, onClose, item }) => {
           <X size={24} />
         </button>
 
-        <div className="mt-8 flex gap-6 overflow-y-auto">
-          {/* Left Section */}
-          <div className="w-[450px] flex-shrink-0">
-            {/* Choose an option / Fries Section */}
-            <div className="mb-6">
-              <button 
-                onClick={() => toggleDropdown('option')}
-                className={`w-full bg-[#EA002A] text-white py-5 px-6 rounded-lg text-left flex justify-between items-center ${
-                  activeDropdown === 'option' ? 'rounded-b-none' : ''
-                }`}
-              >
-                <span className="text-lg font-bold">
-                  {item.name === 'Krunch Combo' ? 'Fries (Required)' :
-                   'Choose an option'}
-                </span>
-                {activeDropdown === 'option' ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
-              </button>
-              <div 
-                className={`transform transition-all duration-300 ease-in-out origin-top ${
-                  activeDropdown === 'option' 
-                    ? 'opacity-100 max-h-[400px] overflow-y-auto' 
-                    : 'opacity-0 max-h-0 overflow-hidden'
-                }`}
-              >
-                <div className="bg-black rounded-b-lg p-6">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                      <div className="w-4 h-4 rounded-full bg-[#EA002A]"></div>
-                      <span className="text-white text-lg">
-                        {item.name === 'Krunch Combo' ? 'Regular Fries' :
-                         item.name === 'Chicken & Chips' ? '2 Pcs' :
-                         item.name === 'Hot Wings Bucket' ? '10 Pcs' :
-                         item.name}
-                      </span>
-                    </div>
-                    <span className="text-white text-lg">+Rs {item.price}</span>
-                  </div>
-                </div>
-              </div>
-            </div>
+        <div className="mt-8 flex gap-8 overflow-y-auto">
+          <DialogLeftSection 
+            item={item}
+            activeDropdown={activeDropdown}
+            toggleDropdown={toggleDropdown}
+            selectedKrunchDrink={selectedKrunchDrink}
+            setSelectedKrunchDrink={setSelectedKrunchDrink}
+            drinkQuantities={drinkQuantities}
+            addOnQuantities={addOnQuantities}
+            handleDrinkSelect={handleDrinkSelect}
+            handleAddOnSelect={handleAddOnSelect}
+            increaseDrinkQuantity={increaseDrinkQuantity}
+            decreaseDrinkQuantity={decreaseDrinkQuantity}
+            increaseAddOnQuantity={increaseAddOnQuantity}
+            decreaseAddOnQuantity={decreaseAddOnQuantity}
+          />
 
-            {/* Drink Section - Hide for Hot Wings Bucket */}
-            {item.name !== 'Hot Wings Bucket' && (
-              <div className="mb-6">
-                <button 
-                  onClick={() => toggleDropdown('drink')}
-                  className={`w-full bg-[#EA002A] text-white py-5 px-6 rounded-lg text-left flex justify-between items-center ${
-                    activeDropdown === 'drink' ? 'rounded-b-none' : ''
-                  }`}
-                >
-                  <span className="text-lg font-bold">
-                    Drink {item.name === 'Krunch Combo' ? '(Required)' : '(Optional)'}
-                  </span>
-                  {activeDropdown === 'drink' ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
-                </button>
-                <div 
-                  className={`transform transition-all duration-300 ease-in-out origin-top ${
-                    activeDropdown === 'drink' 
-                      ? 'opacity-100 max-h-[400px] overflow-y-auto bg-black rounded-b-lg p-6' 
-                      : 'opacity-0 max-h-0 overflow-hidden'
-                  }`}
-                >
-                  {item.name === 'Krunch Combo' ? (
-                    // Radio button list for Krunch Combo
-                    <div className="space-y-4">
-                      {DRINKS.map((drink, index) => (
-                        <label key={index} className="flex items-center gap-4 cursor-pointer">
-                          <div className="relative flex items-center">
-                            <input
-                              type="radio"
-                              name="drink-option"
-                              value={drink.name}
-                              checked={selectedKrunchDrink === drink.name}
-                              onChange={(e) => setSelectedKrunchDrink(e.target.value)}
-                              className="w-4 h-4 appearance-none rounded-full border-2 border-[#EA002A] checked:bg-[#EA002A] checked:border-transparent"
-                            />
-                          </div>
-                          <span className="text-white text-lg">{drink.name}</span>
-                        </label>
-                      ))}
-                    </div>
-                  ) : (
-                    // Regular drink selection for other items
-                    DRINKS.map((drink, index) => (
-                      <div key={index} className="flex items-center justify-between mb-6 last:mb-0">
-                        <div className="flex items-center gap-4">
-                          <Image src={drink.image} alt={drink.name} width={60} height={60} className="object-contain" />
-                          <div>
-                            <span className="text-white text-lg block">{drink.name}</span>
-                            <span className="text-gray-400">(+Rs {drink.price})</span>
-                          </div>
-                        </div>
-                        {drinkQuantities[drink.name] ? (
-                          <div className="flex items-center gap-4">
-                            <button
-                              onClick={() => decreaseDrinkQuantity(drink.name)}
-                              className="text-white hover:text-red-500"
-                            >
-                              {drinkQuantities[drink.name] === 1 ? <Trash2 size={24} /> : <Minus size={24} />}
-                            </button>
-                            <span className="text-white text-xl w-8 text-center">{drinkQuantities[drink.name]}</span>
-                            <button
-                              onClick={() => increaseDrinkQuantity(drink.name)}
-                              className="text-white hover:text-red-500"
-                            >
-                              <Plus size={24} />
-                            </button>
-                          </div>
-                        ) : (
-                          <button
-                            onClick={() => handleDrinkSelect(drink)}
-                            className="bg-[#EA002A] text-white px-6 py-2 rounded text-lg font-medium hover:bg-red-700"
-                          >
-                            ADD
-                          </button>
-                        )}
-                      </div>
-                    ))
-                  )}
-                </div>
-              </div>
-            )}
-
-            {/* Add Ons Section */}
-            <div className="mb-6">
-              <button 
-                onClick={() => toggleDropdown('addons')}
-                className={`w-full bg-[#EA002A] text-white py-5 px-6 rounded-lg text-left flex justify-between items-center ${
-                  activeDropdown === 'addons' ? 'rounded-b-none' : ''
-                }`}
-              >
-                <span className="text-lg font-bold">Add Ons (Optional)</span>
-                {activeDropdown === 'addons' ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
-              </button>
-              <div 
-                className={`transform transition-all duration-300 ease-in-out origin-top ${
-                  activeDropdown === 'addons' 
-                    ? 'opacity-100 max-h-[400px] overflow-y-auto' 
-                    : 'opacity-0 max-h-0 overflow-hidden'
-                }`}
-              >
-                <div className="bg-black rounded-b-lg p-6">
-                  {ADD_ONS.map((addOn, index) => (
-                    <div key={index} className="flex items-center justify-between mb-6 last:mb-0">
-                      <div className="flex items-center gap-4">
-                        <Image src={addOn.image} alt={addOn.name} width={60} height={60} className="object-contain" />
-                        <div>
-                          <span className="text-white text-lg block">{addOn.name}</span>
-                          <span className="text-gray-400">(+Rs {addOn.price})</span>
-                        </div>
-                      </div>
-                      {addOnQuantities[addOn.name] ? (
-                        <div className="flex items-center gap-4">
-                          <button
-                            onClick={() => decreaseAddOnQuantity(addOn.name)}
-                            className="text-white hover:text-red-500"
-                          >
-                            {addOnQuantities[addOn.name] === 1 ? <Trash2 size={24} /> : <Minus size={24} />}
-                          </button>
-                          <span className="text-white text-xl w-8 text-center">{addOnQuantities[addOn.name]}</span>
-                          <button
-                            onClick={() => increaseAddOnQuantity(addOn.name)}
-                            className="text-white hover:text-red-500"
-                          >
-                            <Plus size={24} />
-                          </button>
-                        </div>
-                      ) : (
-                        <button
-                          onClick={() => handleAddOnSelect(addOn)}
-                          className="bg-[#EA002A] text-white px-6 py-2 rounded text-lg font-medium hover:bg-red-700"
-                        >
-                          ADD
-                        </button>
-                      )}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Right Section */}
-          <div className="flex-1 pt-12">
-            <div className="flex flex-col items-center">
-              <div className="relative w-72 h-72 mb-6">
-                <Image
-                  src={item.image}
-                  alt={item.name}
-                  fill
-                  className="object-contain"
-                />
-              </div>
-              <h2 className="text-3xl font-bold text-white mb-3">{item.name}</h2>
-              <p className="text-gray-400 text-center text-lg mb-8 max-w-md">
-                {item.description}
-              </p>
-              
-              <div className="flex items-center gap-6 mb-8">
-                <button
-                  onClick={decreaseQuantity}
-                  disabled={quantity === 1}
-                  className={`text-white p-3 rounded-lg ${
-                    quantity === 1 
-                      ? 'bg-[#1A1A1A] border-2 border-[#EA002A]' 
-                      : 'bg-[#2A2A2A] border-2 border-[#EA002A]'
-                  }`}
-                >
-                  <Minus size={24} />
-                </button>
-                <span className="text-white text-2xl w-8 text-center">{quantity}</span>
-                <button
-                  onClick={increaseQuantity}
-                  className="bg-[#2A2A2A] text-white p-3 rounded-lg hover:bg-[#EA002A] border-2 border-[#EA002A]"
-                >
-                  <Plus size={24} />
-                </button>
-              </div>
-
-              <button
-                className="bg-gradient-to-r from-[#EA002A] via-[#FF2B51] to-[#EA002A] text-white py-4 px-8 rounded-lg w-full flex items-center justify-between text-lg font-bold"
-              >
-                <span>RS {calculateTotal()}</span>
-                <span className="flex items-center gap-2">
-                  ADD TO BUCKET
-                  <ChevronRight size={24} className="rounded-full bg-white text-black  p-1" />
-                </span>
-              </button>
-            </div>
-          </div>
+          <DialogRightSection 
+            item={item}
+            quantity={quantity}
+            decreaseQuantity={decreaseQuantity}
+            increaseQuantity={increaseQuantity}
+            calculateTotal={calculateTotal}
+          />
         </div>
       </div>
     </div>
