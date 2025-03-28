@@ -11,8 +11,6 @@ const DialogLeftSection = ({
   item,
   activeDropdown,
   toggleDropdown,
-  selectedKrunchDrink,
-  setSelectedKrunchDrink,
   drinkQuantities,
   addOnQuantities,
   handleDrinkSelect,
@@ -23,7 +21,7 @@ const DialogLeftSection = ({
   decreaseAddOnQuantity,
 }) => {
   return (
-    <div className="w-[450px] flex-shrink-0">
+    <div className="w-full lg:w-[450px] lg:flex-shrink-0">
       {/* Choose an option / Fries Section */}
       <Dropdown
         title={item.name === "Krunch Combo" ? "Fries" : "Choose an option"}
@@ -33,7 +31,7 @@ const DialogLeftSection = ({
       >
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-4 h-4 rounded-full bg-[#EA002A]"></div>
+            <div className="w-3 h-3 lg:w-4 lg:h-4 rounded-full bg-[#EA002A]"></div>
             <span className="text-black dark:text-white text-lg">
               {item.name === "Krunch Combo"
                 ? "Regular Fries"
@@ -61,23 +59,21 @@ const DialogLeftSection = ({
         >
           {item.name === "Krunch Combo" ? (
             // Radio button list for Krunch Combo
-            <div className="space-y-4">
+            <div className="space-y-3 lg:space-y-4">
               {DRINKS.map((drink, index) => (
                 <label
                   key={index}
-                  className="flex items-center gap-4 cursor-pointer"
+                  className="flex items-center gap-3 lg:gap-4 cursor-pointer"
                 >
                   <div className="relative flex items-center">
                     <input
                       type="radio"
                       name="drink-option"
                       value={drink.name}
-                      checked={selectedKrunchDrink === drink.name}
-                      onChange={(e) => setSelectedKrunchDrink(e.target.value)}
                       className="w-4 h-4 appearance-none rounded-full border-2 border-[#EA002A] checked:bg-[#EA002A] checked:border-transparent"
                     />
                   </div>
-                  <span className="text-black dark:text-white text-lg">
+                  <span className="text-black dark:text-white text-base lg:text-lg block">
                     {drink.name}
                   </span>
                 </label>
@@ -88,51 +84,51 @@ const DialogLeftSection = ({
             DRINKS.map((drink, index) => (
               <div
                 key={index}
-                className="flex items-center justify-between mb-6 last:mb-0"
+                className="flex items-center justify-between mb-4 last:mb-0"
               >
-                <div className="flex items-center gap-4">
+                <div className="flex items-center gap-3">
                   <Image
                     src={drink.image}
                     alt={drink.name}
-                    width={60}
-                    height={60}
-                    className="object-contain"
+                    width={40}
+                    height={40}
+                    className="object-contain lg:w-[60px] lg:h-[60px]"
                   />
                   <div>
-                    <span className="text-black dark:text-white text-lg block">
+                    <span className="text-black dark:text-white text-sm md:text-base lg:text-lg block">
                       {drink.name}
                     </span>
-                    <span className="text-black dark:text-white">
+                    <span className="text-black dark:text-white text-xs lg:text-sm">
                       (+Rs {drink.price})
                     </span>
                   </div>
                 </div>
                 {drinkQuantities[drink.name] ? (
-                  <div className="flex items-center gap-4">
+                  <div className="flex items-center gap-2 lg:gap-4">
                     <button
                       onClick={() => decreaseDrinkQuantity(drink.name)}
-                      className="text-[#D32F2F] hover:bg-[#f0ecef] dark:hover:bg-[#080202] p-2.5"
+                      className="text-[#D32F2F] hover:bg-[#f0ecef] dark:hover:bg-[#080202] md:p-2.5"
                     >
                       {drinkQuantities[drink.name] === 1 ? (
-                        <Trash2 size={24} />
+                        <Trash2 size={20} className="lg:w-6 lg:h-6" />
                       ) : (
-                        <Minus size={24} />
+                        <Minus size={20} className="lg:w-6 lg:h-6" />
                       )}
                     </button>
-                    <span className="text-black dark:text-white text-xl text-center">
+                    <span className="text-black dark:text-white text-base lg:text-lg w-6 lg:w-8 text-center">
                       {drinkQuantities[drink.name]}
                     </span>
                     <button
                       onClick={() => increaseDrinkQuantity(drink.name)}
-                      className="text-[#D32F2F] hover:bg-[#f0ecef] dark:hover:bg-[#080202] p-2.5"
+                      className="text-[#D32F2F] hover:bg-[#f0ecef] dark:hover:bg-[#080202] md:p-2.5"
                     >
-                      <Plus size={24} />
+                      <Plus size={20} className="lg:w-6 lg:h-6" />
                     </button>
                   </div>
                 ) : (
                   <button
                     onClick={() => handleDrinkSelect(drink)}
-                    className="bg-[#EA002A] text-white px-6 py-2 rounded text-lg font-medium hover:bg-red-700 "
+                    className="bg-[#EA002A] text-white px-3 py-1.5 lg:px-6 lg:py-2 rounded text-sm lg:text-base font-medium hover:bg-red-700"
                   >
                     ADD
                   </button>
@@ -153,51 +149,51 @@ const DialogLeftSection = ({
         {ADD_ONS.map((addOn, index) => (
           <div
             key={index}
-            className="flex items-center justify-between mb-6 last:mb-0"
+            className="flex items-center justify-between mb-4 last:mb-0"
           >
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-3">
               <Image
                 src={addOn.image}
                 alt={addOn.name}
-                width={60}
-                height={60}
-                className="object-contain"
+                width={40}
+                height={40}
+                className="object-contain lg:w-[60px] lg:h-[60px]"
               />
               <div>
-                <span className="text-black dark:text-white text-lg block">
+                <span className="text-black dark:text-white text-sm md:text-base lg:text-lg block">
                   {addOn.name}
                 </span>
-                <span className="text-black dark:text-white">
+                <span className="text-black dark:text-white text-xs lg:text-sm">
                   (+Rs {addOn.price})
                 </span>
               </div>
             </div>
             {addOnQuantities[addOn.name] ? (
-              <div className="flex items-center gap-4">
+              <div className="flex items-center gap-2 lg:gap-4">
                 <button
                   onClick={() => decreaseAddOnQuantity(addOn.name)}
-                  className="text-[#D32F2F] hover:bg-[#f0ecef] dark:hover:bg-[#080202] p-2.5"
+                  className="text-[#D32F2F] hover:bg-[#f0ecef] dark:hover:bg-[#080202] md:p-2.5"
                 >
                   {addOnQuantities[addOn.name] === 1 ? (
-                    <Trash2 size={24} />
+                    <Trash2 size={20} className="lg:w-6 lg:h-6" />
                   ) : (
-                    <Minus size={24} />
+                    <Minus size={20} className="lg:w-6 lg:h-6" />
                   )}
                 </button>
-                <span className="text-black dark:text-white text-xl text-center">
+                <span className="text-black dark:text-white text-base lg:text-lg w-6 lg:w-8 text-center">
                   {addOnQuantities[addOn.name]}
                 </span>
                 <button
                   onClick={() => increaseAddOnQuantity(addOn.name)}
-                  className="text-[#D32F2F] hover:bg-[#f0ecef] dark:hover:bg-[#080202] p-2.5"
+                  className="text-[#D32F2F] hover:bg-[#f0ecef] dark:hover:bg-[#080202] md:p-2.5"
                 >
-                  <Plus size={24} />
+                  <Plus size={20} className="lg:w-6 lg:h-6" />
                 </button>
               </div>
             ) : (
               <button
                 onClick={() => handleAddOnSelect(addOn)}
-                className="bg-[#EA002A] text-white px-6 py-2 rounded text-lg font-medium hover:bg-red-700"
+                className="bg-[#EA002A] text-white px-3 py-1.5 lg:px-6 lg:py-2 rounded text-sm lg:text-base font-medium hover:bg-red-700"
               >
                 ADD
               </button>

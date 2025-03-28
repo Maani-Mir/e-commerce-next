@@ -12,7 +12,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "E-commerce App",
+  title: "KFC Pakistan | Deals & Offers",
   description: "A simple e-commerce application in NextJS",
 };
 

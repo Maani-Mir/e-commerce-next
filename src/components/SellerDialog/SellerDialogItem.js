@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { X } from "lucide-react";
+import { X, Plus, Minus, ChevronRight } from "lucide-react";
+import Image from "next/image";
 import DialogLeftSection from "./DialogLeftSection";
 import DialogRightSection from "./DialogRightSection";
 import DRINKS from "@/constants/drinks";
@@ -11,9 +12,6 @@ const SellerDialogItem = ({ isOpen, onClose, item }) => {
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [drinkQuantities, setDrinkQuantities] = useState({});
   const [addOnQuantities, setAddOnQuantities] = useState({});
-  const [selectedKrunchDrink, setSelectedKrunchDrink] = useState(
-    DRINKS[0].name
-  );
 
   useEffect(() => {
     if (isOpen) {
@@ -142,28 +140,103 @@ const SellerDialogItem = ({ isOpen, onClose, item }) => {
         }
       }}
     >
-      <div className="my-4 bg-white dark:bg-[#1C1816] p-8 rounded-3xl w-[900px] relative max-h-[95vh] flex flex-col">
-        {/* Three red stripes */}
-        <div className="absolute top-[1px] left-1/2 transform -translate-x-1/2 text-center">
-          <span className="bg-[#EA002A] px-2 py-1 mr-1.5"></span>
-          <span className="bg-[#EA002A] px-2 py-1 mr-1.5"></span>
-          <span className="bg-[#EA002A] px-2 py-1"></span>
+      {/* Mobile Layout (default) */}
+      <div className="flex flex-col h-full w-full bg-white dark:bg-[#1C1816] md:rounded-3xl md:my-4 md:mx-auto md:max-h-[95vh] md:w-[650px] lg:w-[900px] lg:p-8 lg:pt-0">
+        {/* Header with stripes and close button */}
+        <div className="relative  flex justify-center mb-6">
+          <div className="flex gap-1.5">
+            <span className="bg-[#EA002A] px-2 py-2.5 mr-1.5"></span>
+            <span className="bg-[#EA002A] px-2 py-2.5 mr-1.5"></span>
+            <span className="bg-[#EA002A] px-2 py-2.5 mr-1.5"></span>
+          </div>
+          <button
+            onClick={onClose}
+            className="absolute right-5 lg:right-0 -bottom-9 lg:-bottom-8 text-black bg-[#EA002A] px-3 py-1 rounded-lg"
+          >
+            <X size={24} />
+          </button>
         </div>
 
-        <button
-          onClick={onClose}
-          className="absolute right-6 top-6 bg-[#EA002A] text-black px-3 py-1 rounded-lg"
-        >
-          <X size={24} />
-        </button>
+        {/* Mobile/Tablet Content */}
+        <div className="lg:hidden h-full flex flex-col">
+          {/* Header Section */}
+          <div className="flex flex-col items-center flex-shrink-0">
+            <div className="relative w-60 h-60 mb-4">
+              <Image
+                src={item.image}
+                alt={item.name}
+                fill
+                className="object-contain"
+              />
+            </div>
+            <h2 className="text-2xl font-bold text-black dark:text-white mb-2">
+              {item.name}
+            </h2>
+            <p className="text-black dark:text-white text-center text-base mb-6">
+              {item.description}
+            </p>
 
-        <div className="mt-8 flex gap-8 overflow-y-auto">
+            <div className="flex items-center gap-6 mb-4">
+              <button
+                onClick={decreaseQuantity}
+                disabled={quantity === 1}
+                className={`text-black dark:text-white p-3 rounded-lg ${
+                  quantity === 1
+                    ? "bg-white dark:bg-[#1C1816] border-2 border-[#EA002A]"
+                    : "bg-white dark:bg-[#1C1816] border-2 border-[#EA002A] hover:bg-[#FEFAFA] dark:hover:bg-[#231917]"
+                }`}
+              >
+                <Minus size={20} />
+              </button>
+              <span className="text-black dark:text-white text-xl w-8 text-center">
+                {quantity}
+              </span>
+              <button
+                onClick={increaseQuantity}
+                className="bg-white dark:bg-[#1C1816] text-black dark:text-white p-3 rounded-lg border-2 border-[#EA002A] hover:bg-[#FEFAFA] dark:hover:bg-[#231917]"
+              >
+                <Plus size={20} />
+              </button>
+            </div>
+          </div>
+          {/* Scrollable Content */}
+          <div className="flex-1 overflow-y-auto px-4 min-h-0">
+            <DialogLeftSection
+              item={item}
+              activeDropdown={activeDropdown}
+              toggleDropdown={toggleDropdown}
+              drinkQuantities={drinkQuantities}
+              addOnQuantities={addOnQuantities}
+              handleDrinkSelect={handleDrinkSelect}
+              handleAddOnSelect={handleAddOnSelect}
+              increaseDrinkQuantity={increaseDrinkQuantity}
+              decreaseDrinkQuantity={decreaseDrinkQuantity}
+              increaseAddOnQuantity={increaseAddOnQuantity}
+              decreaseAddOnQuantity={decreaseAddOnQuantity}
+            />
+            <div className="h-12" /> {/* Spacer for fixed button */}
+          </div>
+          {/* Footer Section */}
+          <div className="sticky bottom-0 left-0 right-0 p-4 bg-white dark:bg-[#1C1816] mt-auto">
+            <button className="bg-gradient-to-r from-[#EA002A] via-[#FF2B51] to-[#EA002A] text-white py-4 px-6 rounded-lg w-full flex items-center justify-between text-lg font-bold">
+              <span>RS {calculateTotal()}</span>
+              <span className="flex items-center gap-2">
+                ADD TO BUCKET
+                <ChevronRight
+                  size={24}
+                  className="rounded-full bg-white text-black p-1"
+                />
+              </span>
+            </button>
+          </div>
+        </div>
+
+        {/* Desktop Content */}
+        <div className="hidden lg:flex lg:gap-8 lg:overflow-y-auto">
           <DialogLeftSection
             item={item}
             activeDropdown={activeDropdown}
             toggleDropdown={toggleDropdown}
-            selectedKrunchDrink={selectedKrunchDrink}
-            setSelectedKrunchDrink={setSelectedKrunchDrink}
             drinkQuantities={drinkQuantities}
             addOnQuantities={addOnQuantities}
             handleDrinkSelect={handleDrinkSelect}

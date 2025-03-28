@@ -11,10 +11,10 @@ const Dropdown = ({
   optional = false,
 }) => {
   return (
-    <div className="mb-6">
+    <div className="mb-4 lg:mb-6">
       <button
         onClick={onToggle}
-        className={`w-full bg-[#EA002A] text-white py-5 px-6 rounded-lg text-left flex justify-between items-center ${
+        className={`w-full bg-[#EA002A] text-white py-4 lg:py-5 px-4 lg:px-6 rounded-lg text-left flex justify-between items-center ${
           isOpen ? "rounded-b-none" : ""
         }`}
       >
@@ -31,11 +31,11 @@ const Dropdown = ({
       <div
         className={`transform transition-all duration-300 ease-in-out origin-top ${
           isOpen
-            ? "opacity-100 max-h-[400px] overflow-y-auto"
+            ? "opacity-100 max-h-[60vh] md:max-h-[30vh] lg:max-h-[400px] overflow-y-auto"
             : "opacity-0 max-h-0 overflow-hidden"
         }`}
       >
-        <div className="bg-[#F1F3F6] dark:bg-black rounded-b-lg p-6">
+        <div className="bg-[#F1F3F6] dark:bg-black rounded-b-lg p-4 lg:p-6">
           {children}
         </div>
       </div>
